@@ -1,0 +1,46 @@
+import matplotlib.pyplot as plt
+
+# Data for feature importance
+features = ['OverallQual', 'GrLivArea', 'GarageCars', 'TotalBsmtSF', 'Neighborhood']
+importance = [30, 20, 15, 10, 25]
+
+# Pie chart
+plt.figure(figsize=(6, 6))
+plt.pie(importance, labels=features, autopct='%1.1f%%', startangle=140)
+plt.title('Top Features Influencing House Prices')
+plt.axis('equal')
+plt.tight_layout()
+plt.show()
+import seaborn as sns
+import pandas as pd
+
+# Model errors data
+data = {
+    'Model': ['Linear', 'Lasso', 'Ridge', 'Decision Tree', 'Random Forest', 'Gradient Boosting'],
+    'MAE': [23500, 22900, 22800, 21000, 18500, 17000],
+    'RMSE': [363.4, 360.3, 358.5, 339.1, 313.0, 301.6]
+}
+df_errors = pd.DataFrame(data)
+
+# Plot
+plt.figure(figsize=(10, 6))
+sns.barplot(x='Model', y='MAE', data=df_errors, color='skyblue', label='MAE')
+sns.barplot(x='Model', y='RMSE', data=df_errors, color='navy', alpha=0.7, label='RMSE')
+plt.title('Model Error Comparison (MAE vs RMSE)')
+plt.ylabel('Error Value')
+plt.legend()
+plt.xticks(rotation=15)
+plt.tight_layout()
+plt.show()
+# Full metrics data
+full_metrics = {
+    'Model': ['Linear Regression', 'Lasso Regression', 'Ridge Regression', 
+              'Decision Tree', 'Random Forest', 'Gradient Boosting'],
+    'MAE': [23500, 22900, 22800, 21000, 18500, 17000],
+    'MSE': [132000, 129800, 128500, 115000, 98000, 91000],
+    'RMSE': [363.4, 360.3, 358.5, 339.1, 313.0, 301.6],
+    'R2': [0.68, 0.70, 0.71, 0.76, 0.82, 0.85]
+}
+df_metrics = pd.DataFrame(full_metrics)
+
+# Plo
